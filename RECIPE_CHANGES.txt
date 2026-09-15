@@ -1,0 +1,54 @@
+v0.2.8.0
+- Added template-free batch smithing: 8 Netherite Arrows + 1 Enderite Ingot -> 8 Enderite Arrows.
+- Enderite Arrow damage multiplier: 1.55x.
+- Golden Arrow remains outside the main progression.
+
+--- RECIPE-CHANGES-v0.1.9.txt ---
+Arrow recipes:
+Iron Nugget + Stick + Feather -> 4 Iron Arrows
+Gold Nugget + Stick + Feather -> 4 Golden Arrows
+Diamond + Stick + Feather -> 8 Diamond Arrows
+8 Diamond Arrows surrounding 1 Netherite Ingot -> 8 Netherite Arrows
+
+--- RECIPE-CHANGES-v0.2.1.txt ---
+v0.2.1 fixes the Minecraft 26.2 startup crash caused by shadowing
+ItemCombinerMenu.inputSlots from a SmithingMenu mixin.
+
+Netherite Arrow target recipe:
+Template: empty
+Base: 8 Diamond Arrows
+Addition: 1 Netherite Ingot
+Result: 8 Netherite Arrows
+
+--- RECIPE-CHANGES-v0.2.2.txt ---
+v0.2.2 smithing consumption fix
+
+Problem in v0.2.1:
+The extra seven Diamond Arrows were removed at the HEAD of SmithingMenu.onTake.
+Vanilla then performed its own smithing input update, effectively leaving only
+the normal one-arrow consumption visible.
+
+Fix:
+Allow vanilla smithing to consume 1 Diamond Arrow first, then at TAIL consume
+7 additional Diamond Arrows.
+
+Expected cost:
+8 Diamond Arrows + 1 Netherite Ingot -> 8 Netherite Arrows
+Template slot remains empty.
+
+--- RECIPE-CHANGES-v0.1.8.txt ---
+Iron Nugget + Stick + Feather -> 4 Iron Arrows
+Gold Nugget + Stick + Feather -> 4 Golden Arrows
+Diamond + Stick + Feather -> 8 Diamond Arrows
+8 Diamond Arrows surrounding 1 Netherite Scrap -> 8 Netherite Arrows
+
+--- RECIPE-CHANGES-v0.2.0.txt ---
+Netherite Arrow smithing test:
+Template slot: EMPTY
+Base slot: 8+ Diamond Arrows
+Addition slot: 1 Netherite Ingot
+Output: 8 Netherite Arrows
+
+The included SmithingMenu mixin enforces a minimum of 8 Diamond Arrows and
+consumes seven extra base arrows in addition to vanilla smithing's normal
+one-item base consumption.

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/bow/bow_pulling_2",
+  "textures": {
+    "particle": "enderitemod:item/enderite_bow_pulling_2",
+    "bow": "enderitemod:item/enderite_bow_pulling_2"
+  }
+}

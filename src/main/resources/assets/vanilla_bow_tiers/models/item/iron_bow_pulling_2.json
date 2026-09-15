@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "vanilla_bow_tiers:item/iron_bow_pulling_2"
+  }
+}

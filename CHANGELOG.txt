@@ -1,0 +1,301 @@
+Vanilla Bow Tiers 0.3.3-rc.2
+- Skeleton tiered ammunition now creates the projectile directly through the matching VBT TieredArrowItem.
+- Iron, Golden, Diamond, and Netherite skeletons therefore use the same tiered-arrow creation path as players.
+- Removed the skeleton-side manual projectile-tier simulation; TieredArrowItem now owns tier state and arrow base damage.
+- The corresponding illusion-bow damage multiplier is still applied after tiered-arrow creation.
+- No spawn-rate, drop-rate, recipe, bow-orientation, Bray compatibility, or balance changes.
+
+Vanilla Bow Tiers 0.3.3 - illusion weapon-predicate fix
+- Keeps the real minecraft:bow illusion stack and the confirmed idle model-transform fix.
+- Explicitly passes MC 26.2 AbstractSkeleton.canUseNonMeleeWeapon(ItemStack) for disguised vanilla bows carrying a VBT tier model marker.
+- Leaves vanilla reassessWeaponGoal and RangedBowAttackGoal in control instead of manually replacing AI goals.
+- Matching tiered-arrow and tier-drop illusion logic remain unchanged.
+
+Vanilla Bow Tiers 0.3.3 - illusion + confirmed idle model fix
+- Rebased skeleton behavior onto the previous 26.2 buildfixed vanilla-bow illusion implementation.
+- Skeleton AI now sees/holds a real minecraft:bow again so vanilla controls ranged combat.
+- Kept the later confirmed idle VBT model fix (idle tier models inherit minecraft:item/bow display transforms).
+- Removed the experimental real-VBT-bow/ranged-goal skeleton mixin.
+- Matching tiered projectile behavior and tier/drop bookkeeping come from the buildfixed illusion implementation.
+
+Vanilla Bow Tiers 0.3.3 - idle bow model fix
+- Based on the working 0.3.3 build-fix branch.
+- Changed only the idle Iron/Golden/Diamond/Netherite Bow model parents from minecraft:item/generated to minecraft:item/bow.
+- This inherits vanilla Bow display transforms so an idle skeleton should hold the VBT bow like a bow instead of like a generic flat item.
+- Pulling models, skeleton firing/charging behavior, matching arrows, spawn logic, damage, and drops are unchanged.
+- No renderer or AI pose mixins were added.
+
+Vanilla Bow Tiers 0.3.3
+- Build fix: updated Skeleton, Wither Skeleton, and AbstractSkeleton imports for Minecraft 26.2's monster.skeleton package.
+- Regular Skeletons can now rarely spawn with tiered bows:
+  - 15% Iron Bow
+  - 7% Golden Bow
+  - 3% Diamond Bow
+  - remaining Skeletons keep their normal vanilla equipment
+- Wither Skeletons can now rarely become ranged variants:
+  - 10% Golden Bow
+  - 5% Diamond Bow
+  - 1% Netherite Bow
+  - remaining Wither Skeletons keep their normal equipment
+- Skeletons using a tiered bow now fire the matching tiered arrow projectile.
+- Tiered mob bows use a 2% equipment drop chance to avoid bypassing normal progression.
+- Added the VBT bows to the vanilla bows item tag for normal ranged-weapon recognition.
+- Enderite gear is intentionally excluded from natural Skeleton/Wither Skeleton equipment.
+
+Vanilla Bow Tiers 0.3.2
+- Cleaned up all custom bow/arrow stat tooltips: multiplier values no longer show a trailing ×.
+- Sharpshooter accuracy tooltips no longer show a percent sign.
+- Removed the custom durability tooltip line from bows; actual durability is unchanged.
+- Changed custom bow/arrow stat text from bright green to dark green.
+- Netherite Bow and Netherite Arrow now use the cyan/aqua rarity color.
+- Enderite Bow and Enderite Arrow remain Epic light purple.
+- No gameplay stats, recipes, enchantment behavior, durability values, or textures were changed.
+
+0.3.1
+- Fixed the Enderite Bow resting model in the built-in Bray compatibility pack so it uses the Enderite Bow texture rather than the vanilla bow texture.
+- Sharpshooter IV keeps +100% Accuracy/zero spread but now retains 10% of normal arrow gravity instead of zero gravity.
+- Very weak Enderite Arrow releases now recover into a dropped Enderite Arrow item after 3 seconds instead of lingering as nearly motionless projectiles.
+
+0.3.0
+- Consolidated VBT compatibility into the main mod as built-in resource packs.
+- Added built-in Bray + Enderite compatibility.
+- Added built-in Even Better Enchants compatibility.
+- Embedded the latest Sharpshooter book texture and Sharpshooter IV selector.
+- Standalone VBT compatibility ZIPs are no longer required.
+
+Vanilla Bow Tiers 0.2.9.6
+- Replaced the Sharpshooter enchanted-book compatibility texture with the new user-provided artwork for levels I-IV.
+
+Vanilla Bow Tiers 0.2.9.3
+- Added Sharpshooter IV: +100% Accuracy.
+- Sharpshooter IV removes projectile spread and removes the Sharpshooter gravity component entirely.
+- Updated synchronized Sharpshooter projectile level support and green tooltip display through level IV.
+- Enderite Bow pull-animation twitch investigation tracked separately; its custom pull property uses Enderite Bow charge-time progress.
+
+Vanilla Bow Tiers 0.2.9.1
+- Fixed Minecraft 26.2 compilation: AbstractArrow has no accessible getBaseDamage() method.
+- Bow damage is now calculated when the projectile is created using the known arrow-tier multiplier.
+- Preserves the 0.2.9.0 damage, velocity, and draw-speed balance values.
+
+Vanilla Bow Tiers 0.2.9.0
+- Rebalanced the full bow and arrow combat progression.
+- Bow multipliers (Damage / Velocity / Draw Speed):
+  Iron 1.10x / 1.05x / 1.05x
+  Golden 1.00x / 1.12x / 1.30x
+  Diamond 1.20x / 1.12x / 1.10x
+  Netherite 1.35x / 1.18x / 1.15x
+  Enderite target 1.50x / 1.25x / 1.25x
+- Arrow damage multipliers:
+  Flint 1.00x, Golden 1.10x, Iron 1.25x, Diamond 1.50x,
+  Netherite 1.75x, Enderite 2.50x.
+- VBT bow damage now explicitly multiplies the arrow's tiered base damage.
+- Green bow tooltips now show Damage, Arrow Velocity, and Draw Speed consistently.
+- Enderite Bow tooltip updated to the agreed 1.50x / 1.25x / 1.25x target.
+- Rarity colors, recipes, textures, and Sharpshooter accuracy progression unchanged.
+
+Vanilla Bow Tiers 0.2.8.4
+- Added vanilla rarity/name colors to the bow and arrow progression.
+- Iron Bow/Arrow: Common (white).
+- Golden Bow/Arrow: Uncommon (yellow).
+- Diamond Bow/Arrow: Rare (aqua).
+- Netherite Bow/Arrow: Epic (light purple).
+- Enderite Arrow: Epic (light purple).
+- Enderite Bow tooltip name: Epic-style light purple via optional Enderite integration.
+- Green stat tooltip lines remain unchanged.
+
+Vanilla Bow Tiers 0.2.8.3
+- Added VBT-style green stat tooltip support for Enderite Mod's Enderite Bow.
+- Default Enderite Bow stats shown: 1.17x Arrow Velocity, 1.25x Arrow Damage, 0.67x Draw Speed, and actual durability.
+- Sharpshooter I/II/III also shows +25%/+50%/+75% Accuracy on the Enderite Bow.
+- Integration is optional and does not create a hard Enderite Mod dependency.
+- No recipes, textures, projectile rendering, or balance values changed.
+
+Vanilla Bow Tiers 0.2.8.2
+- Fixed Bray + Enderite Bow draw model accidentally referencing Netherite Bow pulling wrappers.
+- Enderite Bow now uses the user's Enderite bow pulling textures at every draw stage.
+- Retains the 0.2.8.1 Enderite Arrow #minecraft:arrows tag fix so Enderite Bow can select it as real ammo.
+- No damage, recipe, Sharpshooter, or canonical texture changes.
+
+Vanilla Bow Tiers 0.2.8.1
+- Fixed Enderite Arrow ammo compatibility by adding vanilla_bow_tiers:enderite_arrow to #minecraft:arrows.
+- This allows vanilla/VBT bows and Enderite Mod's Enderite Bow to recognize the Enderite Arrow through Minecraft's normal projectile selection.
+- No balance, recipe, Sharpshooter, or texture changes.
+
+Vanilla Bow Tiers 0.2.8.0
+- Added Enderite Arrow at 1.55x damage using the user's exact enderite_arrow.png.
+- Added Netherite Arrow -> Enderite Arrow batch smithing integration with Enderite Mod.
+- Added Enderite Arrow ammo detection for normal bows and Enderite Mod's Enderite Bow.
+- Added optional Bray + Enderite compatibility resources using the user's exact Enderite bow/pulling textures.
+- Preserved all existing Sharpshooter behavior and canonical VBT textures.
+
+Vanilla Bow Tiers 0.2.7.9
+- Added optional Even Better Enchants 26.2 compatibility resources for Sharpshooter books.
+- Sharpshooter I, II, and III use the user's exact 16x16 green Sharpshooter book texture when the compatibility pack is enabled above Even Better Enchants.
+- The main mod does not override the enchanted-book icon; without the compatibility pack, Sharpshooter keeps the normal/generic enchanted-book appearance.
+- No gameplay, recipe, projectile, balance, bow texture, or arrow texture changes.
+
+Vanilla Bow Tiers 0.2.7.8
+- Moved the Flint Arrow rename from tooltip-line editing to ItemStack#getHoverName.
+- Custom/anvil names on vanilla arrows are preserved.
+- Kept the minecraft language override as an additional fallback.
+- No changes to Sharpshooter levels or gameplay.
+
+Vanilla Bow Tiers 0.2.7.7
+- Made the vanilla Arrow -> Flint Arrow display rename robust against resource-pack language priority by replacing the vanilla arrow's tooltip name client-side.
+- Kept the minecraft-namespace language override as a fallback.
+- Consolidated version-specific changelog files into this single CHANGELOG.txt.
+- No gameplay, projectile, recipe, Sharpshooter, or texture changes.
+
+Vanilla Bow Tiers 0.2.3
+
+- Actual project/mod version bumped to 0.2.3, so Gradle now builds vanilla-bow-tiers-0.2.3.jar.
+- Netherite Arrow smithing batch consumption now intercepts SmithingMenu's own shrinkStackInSlot operation.
+- Base cost: exactly 8 Diamond Arrows.
+- Addition cost: 1 Netherite Ingot (vanilla smithing consumption).
+- Template: empty.
+- Output: 8 Netherite Arrows.
+- Fewer than 8 Diamond Arrows produces no result.
+
+Vanilla Bow Tiers 0.2.4.1
+
+Build hotfix:
+- Fixed literal \n characters accidentally written into VanillaBowTiers.java.
+- No intended gameplay changes from 0.2.4.
+- Sharpshooter I-III remains the feature being tested.
+- Netherite Arrow smithing behavior from 0.2.3 remains preserved.
+
+Vanilla Bow Tiers 0.2.4.2
+
+- Added a conditional green Accuracy stat to tiered bow tooltips.
+- Sharpshooter I displays +25% Accuracy.
+- Sharpshooter II displays +50% Accuracy.
+- Sharpshooter III displays +75% Accuracy.
+- The Accuracy line is hidden when Sharpshooter is not present.
+- Bow durability values are unchanged.
+
+Vanilla Bow Tiers 0.2.4.3
+
+Projectile visual alignment:
+- Arrow pitch and yaw now follow the arrow's current velocity vector.
+- The rendered arrow should visually follow its real ballistic trajectory.
+- Works with normal arrows and Sharpshooter's flatter trajectories.
+- Does not alter the existing bow durability values.
+- Preserves Sharpshooter and the Netherite Arrow smithing behavior.
+
+Vanilla Bow Tiers 0.2.4
+Added Sharpshooter I-III.
+I: 75% normal gravity/drop and 75% spread.
+II: 50% normal gravity/drop and 50% spread.
+III: 25% normal gravity/drop and 25% spread.
+Works on vanilla bows and tiered bows. Preserves v0.2.3 Netherite Arrow smithing behavior.
+
+Vanilla Bow Tiers 0.2.5
+
+- Installed the supplied tiered bow and arrow textures without modifying the artwork.
+- Added pulling_0, pulling_1, and pulling_2 models for Iron, Golden, Diamond, and Netherite bows.
+- Wired all four bows to their pulling stages in the Minecraft 26.2 item-model format.
+- Preserves Sharpshooter, Accuracy tooltips, projectile alignment, and Netherite Arrow smithing.
+
+Vanilla Bow Tiers 0.2.6.1
+
+Projectile render hotfix:
+- Corrected the sign of the flying arrow's pitch calculation.
+- Minecraft's X rotation convention is positive downward, while positive Y
+  velocity means upward motion. The previous correction used the opposite
+  convention and could make the rendered projectile visually diverge downward
+  from the actual arrow entity/collision path.
+- Projectile physics, damage, Sharpshooter balance, textures, and Bray nocked
+  arrow compatibility are unchanged.
+
+Vanilla Bow Tiers 0.2.6
+
+Bray compatibility groundwork:
+- Bows now expose the actually selected ammunition tier to the 26.2 item-model
+  system through a custom_model_data string while drawing.
+- Values: vanilla, iron, golden, diamond, netherite.
+- Applies to vanilla BowItem as well as Vanilla Bow Tiers bows.
+- Includes a separate Bray compatibility resource pack.
+- The compatibility pack references Bray's installed model geometry; Bray's
+  artwork/models are not bundled into the mod.
+
+Vanilla Bow Tiers 0.2.7.1
+- Removed the custom per-tick flying-arrow rotation override.
+- Flying arrows now use Minecraft's vanilla rotation/interpolation.
+- Sharpshooter gravity/spread remain unchanged.
+- Includes all v0.2.7 arrow smithing progression and Bray compatibility support.
+
+Vanilla Bow Tiers 0.2.7.2
+- Reworked TieredBowItem launch code so tier velocity modifies only the authoritative projectile speed parameter in BowItem.shootProjectile.
+- No custom projectile position or rotation handling.
+- Divergence and yaw are passed through unchanged.
+- Netherite Bow remains 1.20x velocity.
+- Preserves Sharpshooter, arrow upgrade recipes, textures, and Bray compatibility.
+
+Vanilla Bow Tiers 0.2.7.3
+- Fixed Sharpshooter projectile gravity state being server-only.
+- Sharpshooter level is now stored in synchronized arrow entity data, so the client-visible arrow and server projectile use the same gravity multiplier.
+- Removed scoreboard/entity-tag based Sharpshooter gravity lookup.
+- Sharpshooter I/II/III still use 75%/50%/25% normal arrow gravity and the existing spread reductions.
+- No balance changes to bows, arrows, recipes, textures, or Bray compatibility.
+
+Vanilla Bow Tiers 0.2.7.4
+- Fixed startup crash in the Sharpshooter synchronized-projectile implementation.
+- Moved SharpshooterArrowAccess out of the declared Mixin package so normal mod code can safely reference it.
+- Sharpshooter synchronized gravity implementation remains otherwise unchanged.
+
+Vanilla Bow Tiers 0.2.7.5
+- Renamed the vanilla Arrow display name to Flint Arrow via en_us language resources.
+- Preserved the latest user-provided golden bow idle texture with gold limbs.
+- Preserved the latest user-provided Iron, Golden, Diamond, and Netherite Arrow textures.
+- No item IDs, recipes, projectile behavior, or Sharpshooter mechanics changed.
+
+Vanilla Bow Tiers 0.2.7.6
+- Fixed the Flint Arrow display-name override.
+- Removed item.minecraft.arrow from assets/vanilla_bow_tiers/lang/en_us.json.
+- Added assets/minecraft/lang/en_us.json with item.minecraft.arrow = Flint Arrow.
+- Preserves the corrected Golden Bow texture and latest custom arrow textures from 0.2.7.5.
+- No gameplay, recipe, projectile, or Sharpshooter changes.
+
+Vanilla Bow Tiers 0.2.7
+- 8 Vanilla Arrows + 1 Iron Ingot -> 8 Iron Arrows (Smithing Table, no template)
+- 8 Iron Arrows + 1 Diamond -> 8 Diamond Arrows (Smithing Table, no template)
+- 8 Diamond Arrows + 1 Netherite Ingot -> 8 Netherite Arrows (no template)
+- Golden Arrows remain outside the progression.
+- Netherite Bow upgrade remains unchanged and requires a Netherite Upgrade Smithing Template.
+0.2.9.3
+- Fixed Even Better Enchants compatibility so Sharpshooter IV uses the custom Sharpshooter enchanted-book texture.
+
+0.3.3 skeleton visual test revision
+- Changed tiered bow pulling model parents from minecraft:item/generated to minecraft:item/bow so skeleton charging poses inherit the vanilla bow hand/display transforms.
+- No skeleton AI, spawn chances, ammunition, damage, or projectile rendering logic changed.
+- Custom in-flight projectile textures are intentionally not added in this revision; test charging-bow orientation first.
+
+0.3.3 tiered projectile texture test
+- Added distinct in-flight projectile textures for Iron, Golden, Diamond, Netherite, and Enderite Arrows.
+- Projectile tier is synchronized on the arrow entity so clients can select the matching texture.
+- Skeleton-fired tier arrows inherit the tier from the skeleton's disguised tiered bow.
+- Preserved the corrected vanilla bow pulling/display transforms from the skeleton bow orientation revision.
+
+0.3.3 - Skeleton Bray nocked-arrow compatibility
+- Tiered skeleton illusion bows now carry the matching custom model data marker so Bray's Better Bow & Arrows displays the correct Iron, Golden, Diamond, or Netherite arrow while the skeleton draws the bow.
+- Reuses the existing VBT/Bray tiered arrow textures; no new pulling-arrow artwork is required.
+
+0.3.3 Bray skeleton arrow compatibility revision
+- Added skeleton-specific bow item-model definitions for Iron, Golden, Diamond, and Netherite tiers.
+- Bray compatibility now hardcodes the matching tiered nocked-arrow model for skeleton draw animations instead of falling back to Bray's vanilla arrow.
+- No new textures are required; the existing VBT tiered arrow textures are reused by Bray's 3D arrow geometry.
+
+Vanilla Bow Tiers 0.3.3-rc.1
+- Promoted the revived skeleton tier branch to release-candidate testing after isolating the unrelated purple skeleton-arrow behavior to Timeless rather than VBT.
+- Regular Skeleton spawn equipment chances: 15% Iron Bow, 7% Golden Bow, 3% Diamond Bow, 75% vanilla.
+- Wither Skeleton spawn equipment chances: 10% Golden Bow, 5% Diamond Bow, 1% Netherite Bow, 84% vanilla.
+- Tiered skeleton equipment uses a real vanilla bow internally with a VBT item-model marker so vanilla skeleton ranged AI and posing remain intact.
+- Tiered skeletons fire the matching Iron, Golden, Diamond, or Netherite Arrow and apply the corresponding VBT arrow and bow damage multipliers.
+- Tiered skeleton bows have a controlled 2% drop chance; the internal disguised vanilla bow itself never drops.
+- Preserved the corrected skeleton bow pulling orientation by inheriting vanilla bow display transforms.
+- Added synchronized in-flight projectile tiers and distinct Iron, Golden, Diamond, Netherite, and Enderite Arrow projectile textures.
+- Projectile artwork is preserved pixel-for-pixel from the user-provided textures.
+- Bray compatibility includes skeleton-specific draw models that pair each tiered skeleton bow with the matching nocked-arrow model for all pull stages and hand contexts.
+- Enderite remains excluded from skeleton spawn equipment.
+- No Timeless workaround is included; its classic purple skeleton-arrow behavior is treated as external compatibility behavior rather than a VBT projectile bug.
+- Existing 0.3.2 gameplay balance, recipes, Sharpshooter behavior, and Enderite weak-shot recovery remain unchanged unless listed above.

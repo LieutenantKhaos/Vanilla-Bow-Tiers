@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/bow/arrow_flame_pulling_2_right",
+  "textures": {
+    "arrow": "vanilla_bow_tiers:item/iron_arrow",
+    "flame": "minecraft:item/bow/flame_fire"
+  }
+}
