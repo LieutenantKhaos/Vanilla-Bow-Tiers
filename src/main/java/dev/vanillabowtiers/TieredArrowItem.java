@@ -16,10 +16,12 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class TieredArrowItem extends ArrowItem {
     private final double damageMultiplier;
+    private final int projectileTier;
 
-    public TieredArrowItem(Properties properties, double damageMultiplier) {
+    public TieredArrowItem(Properties properties, double damageMultiplier, int projectileTier) {
         super(properties);
         this.damageMultiplier = damageMultiplier;
+        this.projectileTier = projectileTier;
     }
 
     public double damageMultiplier() {
@@ -36,12 +38,7 @@ public final class TieredArrowItem extends ArrowItem {
         AbstractArrow arrow = super.createArrow(level, pickupStack, owner, firedFromWeapon);
         arrow.setBaseDamageFromMob((float) (2.0D * damageMultiplier));
         if (arrow instanceof ProjectileTierAccess tierAccess) {
-            int tier = this == ModItems.IRON_ARROW ? 1
-                    : this == ModItems.GOLDEN_ARROW ? 2
-                    : this == ModItems.DIAMOND_ARROW ? 3
-                    : this == ModItems.NETHERITE_ARROW ? 4
-                    : this == ModItems.ENDERITE_ARROW ? 5 : 0;
-            tierAccess.vanillaBowTiers$setProjectileTier(tier);
+            tierAccess.vanillaBowTiers$setProjectileTier(projectileTier);
         }
 
         if (this == ModItems.ENDERITE_ARROW && arrow instanceof EnderiteArrowAccess enderiteArrowAccess) {

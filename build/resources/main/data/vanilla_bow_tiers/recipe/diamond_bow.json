@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " D ",
+    "DBD",
+    " D "
+  ],
+  "key": {
+    "D": "minecraft:diamond",
+    "B": "minecraft:bow"
+  },
+  "result": {
+    "id": "vanilla_bow_tiers:diamond_bow",
+    "count": 1
+  }
+}

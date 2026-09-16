@@ -1,0 +1,504 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "property": "minecraft:using_item",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "vanilla_bow_tiers:item/diamond_bow"
+    },
+    "on_true": {
+      "type": "minecraft:select",
+      "property": "minecraft:display_context",
+      "cases": [
+        {
+          "when": [
+            "firstperson_righthand",
+            "thirdperson_righthand",
+            "gui",
+            "head",
+            "ground",
+            "fixed"
+          ],
+          "model": {
+            "type": "minecraft:range_dispatch",
+            "property": "minecraft:use_duration",
+            "scale": 0.05,
+            "entries": [
+              {
+                "threshold": 0.65,
+                "model": {
+                  "type": "minecraft:composite",
+                  "models": [
+                    {
+                      "type": "minecraft:model",
+                      "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_1"
+                    },
+                    {
+                      "type": "minecraft:select",
+                      "property": "minecraft:custom_model_data",
+                      "index": 0,
+                      "cases": [
+                        {
+                          "when": "iron",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_1_right"
+                          }
+                        },
+                        {
+                          "when": "golden",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_1_right"
+                          }
+                        },
+                        {
+                          "when": "diamond",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_1_right"
+                          }
+                        },
+                        {
+                          "when": "netherite",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_1_right"
+                          }
+                        },
+                        {
+                          "when": "enderite",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_1_right"
+                          }
+                        }
+                      ],
+                      "fallback": {
+                        "type": "minecraft:model",
+                        "model": "minecraft:item/bow/arrow_pulling_1_right"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "threshold": 0.9,
+                "model": {
+                  "type": "minecraft:composite",
+                  "models": [
+                    {
+                      "type": "minecraft:model",
+                      "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_2"
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "property": "minecraft:component",
+                      "predicate": "minecraft:enchantments",
+                      "value": [
+                        {
+                          "enchantments": "minecraft:flame"
+                        }
+                      ],
+                      "on_true": {
+                        "type": "minecraft:select",
+                        "property": "minecraft:custom_model_data",
+                        "index": 0,
+                        "cases": [
+                          {
+                            "when": "iron",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/iron_arrow_flame_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "golden",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/golden_arrow_flame_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "diamond",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/diamond_arrow_flame_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "netherite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/netherite_arrow_flame_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "enderite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/enderite_arrow_flame_pulling_2_right"
+                            }
+                          }
+                        ],
+                        "fallback": {
+                          "type": "minecraft:model",
+                          "model": "minecraft:item/bow/arrow_flame_pulling_2_right"
+                        }
+                      },
+                      "on_false": {
+                        "type": "minecraft:select",
+                        "property": "minecraft:custom_model_data",
+                        "index": 0,
+                        "cases": [
+                          {
+                            "when": "iron",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "golden",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "diamond",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "netherite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_2_right"
+                            }
+                          },
+                          {
+                            "when": "enderite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_2_right"
+                            }
+                          }
+                        ],
+                        "fallback": {
+                          "type": "minecraft:model",
+                          "model": "minecraft:item/bow/arrow_pulling_2_right"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "fallback": {
+              "type": "minecraft:composite",
+              "models": [
+                {
+                  "type": "minecraft:model",
+                  "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_0"
+                },
+                {
+                  "type": "minecraft:select",
+                  "property": "minecraft:custom_model_data",
+                  "index": 0,
+                  "cases": [
+                    {
+                      "when": "iron",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_0_right"
+                      }
+                    },
+                    {
+                      "when": "golden",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_0_right"
+                      }
+                    },
+                    {
+                      "when": "diamond",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_0_right"
+                      }
+                    },
+                    {
+                      "when": "netherite",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_0_right"
+                      }
+                    },
+                    {
+                      "when": "enderite",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_0_right"
+                      }
+                    }
+                  ],
+                  "fallback": {
+                    "type": "minecraft:model",
+                    "model": "minecraft:item/bow/arrow_pulling_0_right"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "when": [
+            "firstperson_lefthand",
+            "thirdperson_lefthand"
+          ],
+          "model": {
+            "type": "minecraft:range_dispatch",
+            "property": "minecraft:use_duration",
+            "scale": 0.05,
+            "entries": [
+              {
+                "threshold": 0.65,
+                "model": {
+                  "type": "minecraft:composite",
+                  "models": [
+                    {
+                      "type": "minecraft:model",
+                      "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_1"
+                    },
+                    {
+                      "type": "minecraft:select",
+                      "property": "minecraft:custom_model_data",
+                      "index": 0,
+                      "cases": [
+                        {
+                          "when": "iron",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_1_left"
+                          }
+                        },
+                        {
+                          "when": "golden",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_1_left"
+                          }
+                        },
+                        {
+                          "when": "diamond",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_1_left"
+                          }
+                        },
+                        {
+                          "when": "netherite",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_1_left"
+                          }
+                        },
+                        {
+                          "when": "enderite",
+                          "model": {
+                            "type": "minecraft:model",
+                            "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_1_left"
+                          }
+                        }
+                      ],
+                      "fallback": {
+                        "type": "minecraft:model",
+                        "model": "minecraft:item/bow/arrow_pulling_1_left"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "threshold": 0.9,
+                "model": {
+                  "type": "minecraft:composite",
+                  "models": [
+                    {
+                      "type": "minecraft:model",
+                      "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_2"
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "property": "minecraft:component",
+                      "predicate": "minecraft:enchantments",
+                      "value": [
+                        {
+                          "enchantments": "minecraft:flame"
+                        }
+                      ],
+                      "on_true": {
+                        "type": "minecraft:select",
+                        "property": "minecraft:custom_model_data",
+                        "index": 0,
+                        "cases": [
+                          {
+                            "when": "iron",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/iron_arrow_flame_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "golden",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/golden_arrow_flame_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "diamond",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/diamond_arrow_flame_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "netherite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/netherite_arrow_flame_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "enderite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/enderite_arrow_flame_pulling_2_left"
+                            }
+                          }
+                        ],
+                        "fallback": {
+                          "type": "minecraft:model",
+                          "model": "minecraft:item/bow/arrow_flame_pulling_2_left"
+                        }
+                      },
+                      "on_false": {
+                        "type": "minecraft:select",
+                        "property": "minecraft:custom_model_data",
+                        "index": 0,
+                        "cases": [
+                          {
+                            "when": "iron",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "golden",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "diamond",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "netherite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_2_left"
+                            }
+                          },
+                          {
+                            "when": "enderite",
+                            "model": {
+                              "type": "minecraft:model",
+                              "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_2_left"
+                            }
+                          }
+                        ],
+                        "fallback": {
+                          "type": "minecraft:model",
+                          "model": "minecraft:item/bow/arrow_pulling_2_left"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "fallback": {
+              "type": "minecraft:composite",
+              "models": [
+                {
+                  "type": "minecraft:model",
+                  "model": "vanilla_bow_tiers:item/bray/diamond_bow_pulling_0"
+                },
+                {
+                  "type": "minecraft:select",
+                  "property": "minecraft:custom_model_data",
+                  "index": 0,
+                  "cases": [
+                    {
+                      "when": "iron",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/iron_arrow_pulling_0_left"
+                      }
+                    },
+                    {
+                      "when": "golden",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/golden_arrow_pulling_0_left"
+                      }
+                    },
+                    {
+                      "when": "diamond",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/diamond_arrow_pulling_0_left"
+                      }
+                    },
+                    {
+                      "when": "netherite",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/netherite_arrow_pulling_0_left"
+                      }
+                    },
+                    {
+                      "when": "enderite",
+                      "model": {
+                        "type": "minecraft:model",
+                        "model": "vanilla_bow_tiers:item/bray/enderite_arrow_pulling_0_left"
+                      }
+                    }
+                  ],
+                  "fallback": {
+                    "type": "minecraft:model",
+                    "model": "minecraft:item/bow/arrow_pulling_0_left"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "vanilla_bow_tiers:item/diamond_bow"
+      }
+    }
+  }
+}

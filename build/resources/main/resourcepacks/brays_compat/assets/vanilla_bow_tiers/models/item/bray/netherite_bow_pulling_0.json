@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/bow/bow_pulling_0",
+  "textures": {
+    "particle": "vanilla_bow_tiers:item/netherite_bow_pulling_0",
+    "bow": "vanilla_bow_tiers:item/netherite_bow_pulling_0"
+  }
+}

@@ -26,13 +26,13 @@ public abstract class MobMixin {
         Identifier model = skeleton.getMainHandItem().get(DataComponents.ITEM_MODEL);
         Item drop = null;
 
-        if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "iron_skeleton_bow").equals(model)) {
+        if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "iron_bow").equals(model)) {
             drop = ModItems.IRON_BOW;
-        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "golden_skeleton_bow").equals(model)) {
+        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "golden_bow").equals(model)) {
             drop = ModItems.GOLDEN_BOW;
-        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "diamond_skeleton_bow").equals(model)) {
+        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "diamond_bow").equals(model)) {
             drop = ModItems.DIAMOND_BOW;
-        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "netherite_skeleton_bow").equals(model)) {
+        } else if (Identifier.fromNamespaceAndPath(VanillaBowTiers.MOD_ID, "netherite_bow").equals(model)) {
             drop = ModItems.NETHERITE_BOW;
         }
 

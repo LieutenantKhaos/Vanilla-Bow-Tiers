@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": "minecraft:arrow",
+  "addition": "minecraft:iron_ingot",
+  "result": {
+    "id": "vanilla_bow_tiers:iron_arrow",
+    "count": 8
+  }
+}

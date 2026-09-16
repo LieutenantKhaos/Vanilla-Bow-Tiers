@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "dev.vanillabowtiers.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "SmithingMenuMixin",
+    "AbstractArrowMixin",
+    "BowItemMixin",
+    "ItemStackMixin",
+    "EnderiteBowMixin",
+    "AbstractSkeletonIllusionMixin",
+    "MobMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "TippableArrowRenderStateMixin",
+    "TippableArrowRendererMixin"
+  ]
+}

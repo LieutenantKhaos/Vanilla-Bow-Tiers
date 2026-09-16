@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": "vanilla_bow_tiers:netherite_arrow",
+  "addition": "enderitemod:enderite_ingot",
+  "result": {
+    "id": "vanilla_bow_tiers:enderite_arrow",
+    "count": 8
+  }
+}

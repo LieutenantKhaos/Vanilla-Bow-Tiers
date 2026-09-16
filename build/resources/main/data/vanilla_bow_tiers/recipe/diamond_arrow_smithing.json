@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": "vanilla_bow_tiers:iron_arrow",
+  "addition": "minecraft:diamond",
+  "result": {
+    "id": "vanilla_bow_tiers:diamond_arrow",
+    "count": 8
+  }
+}

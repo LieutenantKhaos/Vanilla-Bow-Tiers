@@ -1,3 +1,16 @@
+Vanilla Bow Tiers 0.3.3-rc.3
+- Skeleton ammunition is rolled once at spawn and remains fixed for that skeleton.
+- Vanilla Bow: 80% vanilla/Flint Arrow, 20% Iron Arrow.
+- Iron Bow: 40% vanilla/Flint Arrow, 60% Iron Arrow.
+- Golden Bow: 20% vanilla/Flint, 40% Iron, 40% Golden.
+- Diamond Bow: 40% Iron, 30% Golden, 30% Diamond.
+- Netherite Bow: 35% Iron, 30% Golden, 25% Diamond, 10% Netherite.
+- Enderite Arrows remain excluded from natural skeleton ammunition.
+- The assigned ammo tier is stored in the bow's persistent custom-model-data component, so it survives chunk unloads and world reloads.
+- Skeletons keep RC.2's proven ArrowItem/TieredArrowItem projectile-creation path.
+- Skeleton illusion bows use the normal VBT bow item models so Bray can render the assigned nocked arrow from the persistent ammo marker.
+- Bow spawn rates, 2% tiered-bow drop chance, bow/arrow stats, recipes, Sharpshooter, and Enderite integration are unchanged.
+
 Vanilla Bow Tiers 0.3.3-rc.2
 - Skeleton tiered ammunition now creates the projectile directly through the matching VBT TieredArrowItem.
 - Iron, Golden, Diamond, and Netherite skeletons therefore use the same tiered-arrow creation path as players.

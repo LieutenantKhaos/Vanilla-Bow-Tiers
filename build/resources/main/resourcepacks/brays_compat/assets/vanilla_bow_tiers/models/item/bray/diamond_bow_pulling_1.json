@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/bow/bow_pulling_1",
+  "textures": {
+    "particle": "vanilla_bow_tiers:item/diamond_bow_pulling_1",
+    "bow": "vanilla_bow_tiers:item/diamond_bow_pulling_1"
+  }
+}

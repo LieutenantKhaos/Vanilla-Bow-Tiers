@@ -52,32 +52,32 @@ public final class ModItems {
 
     public static final Item IRON_ARROW = register(
         ModItemIds.IRON_ARROW,
-        p -> new TieredArrowItem(p, 1.50),
+        p -> new TieredArrowItem(p, 1.50, 1),
         new Item.Properties().rarity(Rarity.COMMON)
     );
 
     public static final Item GOLDEN_ARROW = register(
         ModItemIds.GOLDEN_ARROW,
-        p -> new TieredArrowItem(p, 1.10),
+        p -> new TieredArrowItem(p, 1.10, 2),
         new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static final Item DIAMOND_ARROW = register(
         ModItemIds.DIAMOND_ARROW,
-        p -> new TieredArrowItem(p, 1.50),
+        p -> new TieredArrowItem(p, 1.50, 3),
         new Item.Properties().rarity(Rarity.RARE)
     );
 
     public static final Item NETHERITE_ARROW = register(
         ModItemIds.NETHERITE_ARROW,
-        p -> new TieredArrowItem(p, 1.75),
+        p -> new TieredArrowItem(p, 1.75, 4),
         new Item.Properties().fireResistant().rarity(Rarity.RARE)
     );
 
     // Enderite integration tier: successor to Netherite when Enderite Mod is present.
     public static final Item ENDERITE_ARROW = register(
         ModItemIds.ENDERITE_ARROW,
-        p -> new TieredArrowItem(p, 2.50),
+        p -> new TieredArrowItem(p, 2.50, 5),
         new Item.Properties().fireResistant().rarity(Rarity.EPIC)
     );
 

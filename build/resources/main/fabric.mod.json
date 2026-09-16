@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "vanilla_bow_tiers",
+  "version": "0.3.3-rc.3",
+  "name": "Vanilla Bow Tiers",
+  "description": "Vanilla-style material tiers for bows and arrows, designed to play nicely with resource packs.",
+  "authors": [
+    "ChatGPT + User"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.vanillabowtiers.VanillaBowTiers"
+    ],
+    "client": [
+      "dev.vanillabowtiers.client.VanillaBowTiersClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "vanilla_bow_tiers.mixins.json"
+  ]
+}

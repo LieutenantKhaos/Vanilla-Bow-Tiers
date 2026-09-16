@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "vanilla_bow_tiers:iron_arrow",
+    "vanilla_bow_tiers:golden_arrow",
+    "vanilla_bow_tiers:diamond_arrow",
+    "vanilla_bow_tiers:netherite_arrow",
+    "vanilla_bow_tiers:enderite_arrow"
+  ]
+}
