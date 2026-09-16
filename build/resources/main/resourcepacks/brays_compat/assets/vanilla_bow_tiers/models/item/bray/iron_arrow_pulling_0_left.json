@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/bow/arrow_pulling_0_left",
-  "textures": {
-    "arrow": "vanilla_bow_tiers:item/bray/iron_arrow"
-  }
-}

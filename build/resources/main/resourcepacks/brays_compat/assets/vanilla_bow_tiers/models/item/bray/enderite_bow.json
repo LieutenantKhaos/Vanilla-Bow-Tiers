@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/bow/bow",
-  "textures": {
-    "particle": "enderitemod:item/enderite_bow",
-    "layer0": "enderitemod:item/enderite_bow"
-  }
-}
