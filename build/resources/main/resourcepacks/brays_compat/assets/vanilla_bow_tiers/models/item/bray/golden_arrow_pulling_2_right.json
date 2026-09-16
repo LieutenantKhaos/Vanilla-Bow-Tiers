@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/bow/arrow_pulling_2_right",
   "textures": {
-    "arrow": "vanilla_bow_tiers:item/golden_arrow"
+    "arrow": "vanilla_bow_tiers:item/bray/golden_arrow"
   }
 }
